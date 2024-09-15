@@ -47,7 +47,6 @@
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'nathalie-mota' ); ?></button>
 			<?php
 			wp_nav_menu(
 				
@@ -57,6 +56,17 @@
 				)
 			);
 			?>
+			<!-- Menu mobile -->
+			<div id="burger-menu">
+					<span></span>
+				</div>
+				<div id="menu-mobile">
+					<ul>
+						<li><a href="<?php echo home_url('/'); ?>">Accueil</a></li>
+						<li><a href="<?php echo home_url('/a-propos'); ?>">A propos</a></li>
+						<li class="contact-btn"><a href="#">Contact</a></li>
+					</ul>
+				</div>
 		</nav><!-- #site-navigation -->
 		<div class="popup-overlay">
 	<div class="popup-salon">
@@ -65,11 +75,12 @@
 			<span class="popup-close"><i class="fa fa-times"></i></span>
 		</div>
 		
-	
-		<?php
-		// On insère le formulaire de demandes de renseignements
-		 echo do_shortcode('[contact-form-7 id="532ef71" title="Formulaire de contact 1"]');
-		?>
+		<div class="contact-form">
+			<?php
+			// On insère le formulaire de demandes de renseignements
+			echo do_shortcode('[contact-form-7 id="532ef71" title="Formulaire de contact 1"]');
+			?>
+		</div>
 	</div>
 </div>
 	</header><!-- #masthead -->

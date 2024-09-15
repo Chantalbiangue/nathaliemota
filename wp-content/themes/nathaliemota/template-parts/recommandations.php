@@ -22,9 +22,8 @@
             while ($the_query->have_posts()) {
                 $the_query->the_post();
         ?>
-                <div class="recommandations_photo">
-                    <?php the_post_thumbnail(array(564, 495)); ?>
-                </div>
+            <!-- Chargement d'une photo à répéter autant de fois que la requete aura fournit un résultat -->
+            <?php get_template_part('template-parts/onephoto'); ?>
         <?php
             }
             echo '</div>';

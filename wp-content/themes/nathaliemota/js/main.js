@@ -16,3 +16,16 @@ single_contact_btns.forEach((single_contact_btn) => {
         modal_ref_input.value = reference;
     });
 });
+
+/* Affichage menu mobile à partir du format tablette */
+document.addEventListener('DOMContentLoaded', function () {
+    let burgerMenu = document.getElementById('burger-menu');
+    let overlay = document.getElementById('menu-mobile');
+    
+    burgerMenu.addEventListener('click', function () {
+        this.classList.toggle("close");
+        overlay.classList.toggle("overlay");
+        console.log("burgerMenu classes: ", this.classList);
+        console.log("overlay classes: ", overlay.classList);
+    });
+});

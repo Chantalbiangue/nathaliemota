@@ -46,7 +46,7 @@ get_header();
 	?>
 </section>
 <main id="primary" class="site-main">
-	<div id="content-wrap">
+	<div id="content-wrap" class="container">
 		<!-- Chargement des filtres -->
 		<?php get_template_part('template-parts/photo-filter'); ?>
 
@@ -67,26 +67,8 @@ get_header();
 				while ($the_query->have_posts()) {
 					$the_query->the_post();
 			?>
-					<div class="galerie-photos__single">
-						<a href="<?php echo esc_url(wp_get_attachment_url(get_post_thumbnail_id())); ?>" class="lightbox-trigger photo-link">
-							<?php the_post_thumbnail('single'); ?>
-						</a>
-						<div class="single__overlay">
-							<span>
-								<img class="single__overlay-fullscreen" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon_fullscreen.png" alt="Icône plein écran" />
-							</span>
-							<span class="single__overlay-eye">
-								<a href="<?php echo get_post_permalink(); ?>">
-									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon_eye.png" alt="Icône oeil ouvert" />
-
-								</a>
-							</span>
-							<div class="single__caption">
-								<span class="single__overlay-title"><?php the_title(); ?></span>
-								<span class="single__overlay-categorie"><?php echo strip_tags(get_the_term_list(get_the_ID(), 'categorie')); ?></span>
-							</div>
-						</div>
-					</div>
+					<!-- Chargement d'une photo à répéter autant de fois que la requete aura fournit un résultat -->
+					<?php get_template_part('template-parts/onephoto'); ?>
 			<?php
 				}
 				echo '</div>';

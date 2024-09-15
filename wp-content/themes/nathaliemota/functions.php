@@ -48,6 +48,17 @@ function nathalie_mota_setup()
 		*/
 	add_theme_support('post-thumbnails');
 
+	 // Tailles d'images personnalisées 
+
+    // Définir la taille des images mises en avant 
+    set_post_thumbnail_size(2000, 400, true);
+
+    // Définir d'autres tailles d'images by Jessica
+    add_image_size('single', 564, 495, true);
+    add_image_size('single-portrait', 563, 844, true);
+    add_image_size('hero-banner', 1440, 962, true);
+
+	
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
@@ -155,6 +166,8 @@ function nathalie_mota_scripts()
 	}
 	wp_enqueue_style('lightbox', get_template_directory_uri() . '/assets/css/lightbox.css', '6.5.2', true);
 	wp_enqueue_script('lightbox-js', get_template_directory_uri() . '/js/lightbox.js', array(), '1.0.0', true);
+	wp_enqueue_style('responsive', get_template_directory_uri() . '/assets/css/responsive.css', array(),  _S_VERSION);
+
 }
 add_action('wp_enqueue_scripts', 'nathalie_mota_scripts');
 
@@ -266,11 +279,11 @@ function filter_photos()
 			$resultats_html .= '</a>';
 			$resultats_html .= '<div class="single__overlay">';
 			$resultats_html .= '<span>';
-			$resultats_html .= '<img class="single__overlay-fullscreen" src="' . get_template_directory_uri() . '/assets/images/icon_fullscreen.png" alt="Icône plein écran" />';
+			$resultats_html .= '<img class="single__overlay-fullscreen" src="' . get_template_directory_uri() . '/assets/img/icon_fullscreen.png" alt="Icône plein écran" />';
 			$resultats_html .= '</span>';
 			$resultats_html .= '<span class="single__overlay-eye">';
 			$resultats_html .= '<a href="' . get_post_permalink() . '">';
-			$resultats_html .= '<img src="' . get_template_directory_uri() . '/assets/images/icon_eye.png" alt="Icône oeil ouvert" />';
+			$resultats_html .= '<img src="' . get_template_directory_uri() . '/assets/img/icon_eye.png" alt="Icône oeil ouvert" />';
 			$resultats_html .= '</a>';
 			$resultats_html .= '</span>';
 			$resultats_html .= '<div class="single__caption">';
@@ -335,11 +348,11 @@ function load_photos()
 			$resultats_html .= '</a>';
 			$resultats_html .= '<div class="single__overlay">';
 			$resultats_html .= '<span>';
-			$resultats_html .= '<img class="single__overlay-fullscreen" src="' . get_template_directory_uri() . '/assets/images/icon_fullscreen.png" alt="Icône plein écran" />';
+			$resultats_html .= '<img class="single__overlay-fullscreen" src="' . get_template_directory_uri() . '/assets/img/icon_fullscreen.png" alt="Icône plein écran" />';
 			$resultats_html .= '</span>';
 			$resultats_html .= '<span class="single__overlay-eye">';
 			$resultats_html .= '<a href="' . get_post_permalink() . '">';
-			$resultats_html .= '<img src="' . get_template_directory_uri() . '/assets/images/icon_eye.png" alt="Icône oeil ouvert" />';
+			$resultats_html .= '<img src="' . get_template_directory_uri() . '/assets/img/icon_eye.png" alt="Icône oeil ouvert" />';
 			$resultats_html .= '</a>';
 			$resultats_html .= '</span>';
 			$resultats_html .= '<div class="single__caption">';
