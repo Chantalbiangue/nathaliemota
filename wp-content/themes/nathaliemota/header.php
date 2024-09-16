@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The header for our theme
  *
@@ -12,8 +13,9 @@
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
+
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -22,42 +24,43 @@
 </head>
 
 <body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'nathalie-mota' ); ?></a>
+	<?php wp_body_open(); ?>
+	<div id="page" class="site">
+		<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'nathalie-mota'); ?></a>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+		<header id="masthead" class="site-header">
+			<div class="site-branding">
 				<?php
-			else :
+				the_custom_logo();
+				if (is_front_page() && is_home()) :
 				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+					<h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
 				<?php
-			endif;
-			$nathalie_mota_description = get_bloginfo( 'description', 'display' );
-			if ( $nathalie_mota_description || is_customize_preview() ) :
+				else :
 				?>
-				<p class="site-description"><?php echo $nathalie_mota_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+					<p class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></p>
+				<?php
+				endif;
+				$nathalie_mota_description = get_bloginfo('description', 'display');
+				if ($nathalie_mota_description || is_customize_preview()) :
+				?>
+					<p class="site-description"><?php echo $nathalie_mota_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+												?></p>
+				<?php endif; ?>
+			</div><!-- .site-branding -->
 
-		<nav id="site-navigation" class="main-navigation">
-			<?php
-			wp_nav_menu(
-				
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-			<!-- Menu mobile -->
-			<div id="burger-menu">
+			<nav id="site-navigation" class="main-navigation">
+				<?php
+				wp_nav_menu(
+
+					array(
+						'theme_location' => 'menu-1',
+						'menu_id'        => 'primary-menu',
+					)
+				);
+				?>
+				<!-- Menu mobile -->
+				<div id="burger-menu">
 					<span></span>
 				</div>
 				<div id="menu-mobile">
@@ -67,20 +70,21 @@
 						<li class="contact-btn"><a href="#">Contact</a></li>
 					</ul>
 				</div>
-		</nav><!-- #site-navigation -->
-		<div class="popup-overlay">
-	<div class="popup-salon">
-		<div class="popup-header">
-			<img src="<?php echo get_template_directory_uri() ?>/assets/img/Contactheader.png">
-			<span class="popup-close"><i class="fa fa-times"></i></span>
-		</div>
-		
-		<div class="contact-form">
-			<?php
-			// On insère le formulaire de demandes de renseignements
-			echo do_shortcode('[contact-form-7 id="532ef71" title="Formulaire de contact 1"]');
-			?>
-		</div>
-	</div>
-</div>
-	</header><!-- #masthead -->
+			</nav><!-- #site-navigation -->
+			<!-- Debut du modal de Contact -->
+			<div class="popup-overlay">
+				<div class="popup-salon">
+					<div class="popup-header">
+						<img src="<?php echo get_template_directory_uri() ?>/assets/img/Contactheader.png">
+						<span class="popup-close"><i class="fa fa-times"></i></span>
+					</div>
+
+					<div class="contact-form">
+						<?php
+						// On insère le formulaire de demandes de renseignements
+						echo do_shortcode('[contact-form-7 id="532ef71" title="Formulaire de contact 1"]');
+						?>
+					</div>
+				</div>
+			</div>
+		</header><!-- #masthead -->
